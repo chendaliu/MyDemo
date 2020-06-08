@@ -6,21 +6,21 @@ import java.lang.reflect.Proxy;
 
 public class JdkDynamicProxy implements InvocationHandler {
 
-    private Object delegate;
+    private Class delegateInterface;
 
-    public JdkDynamicProxy(Object bookService){
-        this.delegate = bookService;
+    public JdkDynamicProxy(Class bookService){
+        this.delegateInterface = bookService;
     }
 
     @SuppressWarnings("unchecked")
 	public <T> T getProxy(){
-    	return (T) Proxy.newProxyInstance(delegate.getClass().getClassLoader(), delegate.getClass().getInterfaces(), this);
+    	return (T) Proxy.newProxyInstance(delegateInterface.getClassLoader(), new Class[] { delegateInterface }, this);
     }
     
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         prepareMoneyForBuyBook();
-        Object obj = method.invoke(delegate, args);
+        Object obj = method.invoke(delegateInterface, args);
         readBookAfterBuy();
         return obj;
     }

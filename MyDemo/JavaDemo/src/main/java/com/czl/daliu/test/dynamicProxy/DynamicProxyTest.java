@@ -1,5 +1,6 @@
 package com.czl.daliu.test.dynamicProxy;
 
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 
@@ -7,8 +8,9 @@ import java.lang.reflect.Method;
 public class DynamicProxyTest {
 
 	public static void main(String[] args) {
-		BookService cgBookService = new JdkDynamicProxy(new BookServiceImpl()).getProxy();
-		cgBookService.buyBook();
+		Object object = new JdkDynamicProxy(TestInterface.class).getProxy();
+		System.out.println(object);
+		/*cgBookService.buyBook();
 		
 		//BookServiceImpl cgBookService = CGLibDynamicProxy.getInstance().getProxy(BookServiceImpl.class);
 
@@ -22,7 +24,7 @@ public class DynamicProxyTest {
 			Method[] beanc_method = beanc.getMethods();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}
+		}*/
 		//cgBookService.buyBook();
     }
 

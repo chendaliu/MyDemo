@@ -1,3 +1,4 @@
+/*
 package com.czl.daliu.test.annotation.compile;
 
 import com.sun.xml.internal.ws.developer.MemberSubmissionEndpointReference;
@@ -14,10 +15,12 @@ import javax.lang.model.util.Types;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
+*/
 /**
  * 注解处理器类
  * 参考：https://blog.csdn.net/qq_20521573/article/details/82321755
- */
+ *//*
+
 @SupportedAnnotationTypes("com.czl.daliu.test.annotation.compile.IShape")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class FactoryProcessor extends AbstractProcessor {
@@ -33,8 +36,10 @@ public class FactoryProcessor extends AbstractProcessor {
         //  通过RoundEnvironment获取到所有被@Factory注解的对象
         for (Element annotatedElement : roundEnv.getElementsAnnotatedWith(Factory.class)) {
             if (annotatedElement.getKind() != ElementKind.CLASS) {
-                /*throw new ProcessingException(annotatedElement, "Only classes can be annotated with @%s",
-                        Factory.class.getSimpleName());*/
+                */
+/*throw new ProcessingException(annotatedElement, "Only classes can be annotated with @%s",
+                        Factory.class.getSimpleName());*//*
+
             }
             TypeElement typeElement = (TypeElement) annotatedElement;
             FactoryAnnotatedClass annotatedClass = new FactoryAnnotatedClass(typeElement);
@@ -107,3 +112,4 @@ public class FactoryProcessor extends AbstractProcessor {
                 classElement.getQualifiedName().toString());
     }
 }
+*/
