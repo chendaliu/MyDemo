@@ -21,6 +21,13 @@ public class Main {
         executorService.execute(new Worker("王五", countDownLatch));
         executorService.execute(new Boss(countDownLatch));
 
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("都干完活了");
+
         executorService.shutdown();
     }
 }

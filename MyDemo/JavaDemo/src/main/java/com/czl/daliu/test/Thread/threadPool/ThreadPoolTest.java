@@ -1,4 +1,4 @@
-package com.czl.daliu.test.Thread.countDowLatch.threadPool;
+package com.czl.daliu.test.Thread.threadPool;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
